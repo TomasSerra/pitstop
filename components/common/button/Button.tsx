@@ -4,7 +4,7 @@ import { useTheme } from "@/hooks/useTheme";
 import { Values } from "@/constants/Values";
 
 interface ButtonProps extends React.ComponentProps<typeof Pressable> {
-  color?: "primary";
+  color?: "primary" | "black";
   size?: "small" | "medium" | "large";
   variant?: "filled" | "outlined";
   text: string;
@@ -21,6 +21,20 @@ const getColorMap = (theme: ReturnType<typeof useTheme>) => ({
       backgroundColor: "transparent",
       textColor: theme.primary,
       borderColor: theme.primary,
+      borderWidth: 1,
+    },
+  },
+  black: {
+    filled: {
+      backgroundColor: theme.text.default,
+      textColor: theme.background,
+      borderColor: "transparent",
+    },
+    outlined: {
+      backgroundColor: "transparent",
+      textColor: theme.text.default,
+      borderColor: theme.text.default,
+      borderWidth: 1,
     },
   },
 });
@@ -76,7 +90,13 @@ const Button: React.FC<ButtonProps> = ({
       android_ripple={{ color: theme.primary + "30" }}
       {...props}
     >
-      <Text style={{ color: buttonColorStyle.textColor, fontWeight: "bold" }}>
+      <Text
+        style={{
+          color: buttonColorStyle.textColor,
+          fontWeight: "bold",
+          fontSize: buttonSizeStyle.fontSize,
+        }}
+      >
         {text}
       </Text>
     </Pressable>

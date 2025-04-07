@@ -31,4 +31,9 @@ export const Values = {
       height: 50,
     },
   },
+  table: {
+    borderWidth: 1,
+    borderRadius: 8,
+    columnWidth: 140,
+  },
 };

@@ -1,27 +1,10 @@
-import { StyleSheet } from "react-native";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
-import { ScrollView } from "react-native-gesture-handler";
+import ScreenWrapper from "@/components/common/screen-wrapper/ScreenWrapper";
+import CollectionsPage from "@/components/tabs/collections/CollectionsPage";
 
 export default function Collections() {
   return (
-    <ScrollView>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Collections</ThemedText>
-      </ThemedView>
-    </ScrollView>
+    <ScreenWrapper>
+      <CollectionsPage />
+    </ScreenWrapper>
   );
 }
-
-const styles = StyleSheet.create({
-  headerImage: {
-    color: "#808080",
-    bottom: -90,
-    left: -35,
-    position: "absolute",
-  },
-  titleContainer: {
-    flexDirection: "row",
-    gap: 8,
-  },
-});
