@@ -42,7 +42,7 @@ export const Colors = {
     tabIconDefault: "#9BA1A6",
     tabIconSelected: primary500,
     card: {
-      background: "#1F2124",
+      background: "#0E1011",
       border: "#2C2F33",
     },
     table: {

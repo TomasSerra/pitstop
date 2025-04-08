@@ -19,10 +19,7 @@ const ButtonsSlider: React.FC<ButtonsSliderProps> = ({
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={[
-        styles.container,
-        { paddingRight: Values.padding.paddingHorizontal },
-      ]}
+      contentContainerStyle={styles.container}
       style={styles.container}
     >
       {labels.map((label, index) => (
@@ -43,5 +40,7 @@ export default ButtonsSlider;
 const styles = StyleSheet.create({
   container: {
     gap: 10,
+    paddingRight: Values.padding.paddingHorizontal,
+    paddingLeft: Values.padding.paddingHorizontal - 10,
   },
 });

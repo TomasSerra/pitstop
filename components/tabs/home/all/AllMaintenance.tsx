@@ -5,6 +5,7 @@ import Button from "@/components/common/button/Button";
 import AllMaintenanceCard from "@/components/common/cards/maintenance/all-maintenance/AllMaintenanceCard";
 import { AllMaintenanceCardData } from "@/types/maintenance/all";
 import { Values } from "@/constants/Values";
+import { useTheme } from "@/hooks/useTheme";
 
 const AllMaintenance = () => {
   const data: AllMaintenanceCardData = {
@@ -22,13 +23,16 @@ const AllMaintenance = () => {
       days: "365",
     },
   };
+
+  const theme = useTheme();
+
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
         <ThemedText type="subtitle">All Maintenance</ThemedText>
         <Button text="+ Add" size="small" />
       </View>
-      <View style={styles.cardsContainer}>
+      <View style={[styles.cardsContainer, { borderColor: theme.card.border }]}>
         <AllMaintenanceCard data={data} />
         <AllMaintenanceCard data={data} />
         <AllMaintenanceCard data={data} />
@@ -55,5 +59,6 @@ const styles = StyleSheet.create({
     gap: 0,
     overflow: "hidden",
     borderRadius: Values.card.borderRadius,
+    borderWidth: 1,
   },
 });

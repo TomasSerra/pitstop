@@ -16,7 +16,6 @@ export default HomePage;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     gap: 27,
     paddingBottom: 20,
   },

@@ -117,8 +117,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonsContainer: {
-    marginHorizontal: -20,
-    paddingHorizontal: 20,
+    marginLeft: -20,
     flexDirection: "row",
     alignItems: "center",
     gap: 10,

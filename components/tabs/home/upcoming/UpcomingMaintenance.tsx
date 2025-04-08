@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     gap: 17,
+    minHeight: "auto",
   },
   cardContainer: {
     gap: 7,
