@@ -30,7 +30,7 @@ export default function TabLayout() {
           title: "Home",
           header: () => <Header car="Sandero Rs" />,
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="house.fill" color={color} />
+            <IconSymbol size={28} name="house" color={color} />
           ),
         }}
       />
@@ -57,7 +57,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="car"
         options={{
-          title: "My Car",
+          title: "My Cars",
           header: () => <Header car="Sandero Rs" />,
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="car" color={color} />

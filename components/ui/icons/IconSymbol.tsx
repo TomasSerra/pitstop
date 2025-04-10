@@ -1,27 +1,24 @@
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { Ionicons } from "@expo/vector-icons";
 import { SymbolWeight } from "expo-symbols";
 import React from "react";
 import { OpaqueColorValue, StyleProp, TextStyle } from "react-native";
 
 const MAPPING = {
-  "house.fill": "home",
-  "paperplane.fill": "send",
-  "chevron.left.forwardslash.chevron.right": "code",
-  "chevron.right": "chevron-right",
-  calendar: "calendar-month",
+  house: "home",
+  calendar: "calendar",
   folder: "folder",
-  car: "directions-car",
-  "car.fill": "directions-car-filled",
-  "exclamationmark.triangle": "warning-amber",
-  "arrowtriangle.down.fill": "arrow-drop-down",
-  "arrowtriangle.right.fill": "arrow-right",
-  "square.and.pencil": "edit",
-  "trash.fill": "delete",
-  trash: "delete-outline",
+  car: "car",
+  "car.fill": "car",
+  "exclamationmark.triangle": "alert-circle-outline",
+  "arrowtriangle.down.fill": "caret-down",
+  "arrowtriangle.right.fill": "caret-forward",
+  "square.and.pencil": "pencil",
+  "trash.fill": "trash",
+  trash: "trash-outline",
 } as Partial<
   Record<
     import("expo-symbols").SymbolViewProps["name"],
-    React.ComponentProps<typeof MaterialIcons>["name"]
+    React.ComponentProps<typeof Ionicons>["name"]
   >
 >;
 
@@ -40,11 +37,6 @@ export function IconSymbol({
   weight?: SymbolWeight;
 }) {
   return (
-    <MaterialIcons
-      color={color}
-      size={size}
-      name={MAPPING[name]}
-      style={style}
-    />
+    <Ionicons color={color} size={size} name={MAPPING[name]} style={style} />
   );
 }

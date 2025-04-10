@@ -1,15 +1,15 @@
-interface LastChange {
+type LastChange = {
   date: string;
   km: number;
-}
+};
 
-interface Remaining {
+type Remaining = {
   days?: number;
   km?: number;
-}
+};
 
-export interface UpcomingMaintenanceCardData {
+export type UpcomingMaintenanceCardData = {
   title: string;
   lastChange: LastChange;
   remaining: Remaining;
-}
+};

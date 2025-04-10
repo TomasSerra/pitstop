@@ -28,6 +28,10 @@ export const Colors = {
     softShadow: "#F6F7F6",
     header: "#fff",
     alert: primary500,
+    input: {
+      background: "#F5F5F5",
+      border: "#E4E4E4",
+    },
   },
   dark: {
     primary: primary500,
@@ -55,5 +59,9 @@ export const Colors = {
     softShadow: "#151718",
     header: "#000",
     alert: primary500,
+    input: {
+      background: "#151718",
+      border: "#2C2F33",
+    },
   },
 };

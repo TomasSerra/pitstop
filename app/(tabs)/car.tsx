@@ -1,15 +1,13 @@
 import { StyleSheet } from "react-native";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
 import { ScrollView } from "react-native-gesture-handler";
+import CarPage from "@/components/tabs/car/CarPage";
+import ScreenWrapper from "@/components/ui/screen-wrapper/ScreenWrapper";
 
 export default function Car() {
   return (
-    <ScrollView>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Car</ThemedText>
-      </ThemedView>
-    </ScrollView>
+    <ScreenWrapper>
+      <CarPage />
+    </ScreenWrapper>
   );
 }
 

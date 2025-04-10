@@ -1,21 +1,21 @@
-export interface AllMaintenanceCardData {
+export type AllMaintenanceCardData = {
   title: string;
   lastChange: LastChange;
   next: Next;
   frequency: Frequency;
-}
+};
 
-interface LastChange {
+type LastChange = {
   date: string;
   km: number;
-}
+};
 
-interface Next {
+type Next = {
   date?: string;
   km?: number;
-}
+};
 
-interface Frequency {
+type Frequency = {
   km?: number;
   days?: string;
-}
+};

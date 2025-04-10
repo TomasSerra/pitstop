@@ -1,15 +1,15 @@
-export interface Collection {
+export type Collection = {
   id: number;
   name: string;
   data: CollectionData[];
-}
+};
 
-export interface CollectionData {
+export type CollectionData = {
   title: string;
   data: CollectionSectionData[];
-}
+};
 
-export interface CollectionSectionData {
+export type CollectionSectionData = {
   key: string;
   value: string;
-}
+};
