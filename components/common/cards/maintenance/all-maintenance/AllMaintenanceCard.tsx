@@ -4,7 +4,6 @@ import { AllMaintenanceCardData } from "@/types/maintenance/all";
 import { ThemedText } from "@/components/ThemedText";
 import Badge from "./Badge";
 import { useTheme } from "@/hooks/useTheme";
-import { Values } from "@/constants/Values";
 
 interface AllMaintenanceCardProps {
   data: AllMaintenanceCardData;

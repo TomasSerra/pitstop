@@ -4,8 +4,7 @@ import { ThemedText } from "@/components/ThemedText";
 import Button from "@/components/common/button/Button";
 import AllMaintenanceCard from "@/components/common/cards/maintenance/all-maintenance/AllMaintenanceCard";
 import { AllMaintenanceCardData } from "@/types/maintenance/all";
-import { Values } from "@/constants/Values";
-import { useTheme } from "@/hooks/useTheme";
+import Card from "@/components/common/cards/card/Card";
 
 const AllMaintenance = () => {
   const data: AllMaintenanceCardData = {
@@ -24,20 +23,18 @@ const AllMaintenance = () => {
     },
   };
 
-  const theme = useTheme();
-
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
         <ThemedText type="subtitle">All Maintenance</ThemedText>
         <Button text="+ Add" size="small" />
       </View>
-      <View style={[styles.cardsContainer, { borderColor: theme.card.border }]}>
+      <Card style={StyleSheet.flatten([styles.cardsContainer])}>
         <AllMaintenanceCard data={data} />
         <AllMaintenanceCard data={data} />
         <AllMaintenanceCard data={data} />
         <AllMaintenanceCard data={data} />
-      </View>
+      </Card>
     </View>
   );
 };
@@ -55,10 +52,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   cardsContainer: {
-    flex: 1,
     gap: 0,
-    overflow: "hidden",
-    borderRadius: Values.card.borderRadius,
-    borderWidth: 1,
+    padding: 0,
   },
 });

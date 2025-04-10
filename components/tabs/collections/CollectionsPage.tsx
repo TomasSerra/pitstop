@@ -81,24 +81,11 @@ const CollectionsPage = () => {
           labels={collections.map((collection) => collection.name)}
           selected={activeCollection}
           changeSelected={setActiveCollection}
-        />
-        <Button text="+ Add" variant="outlined" />
-      </View>
-      <View style={styles.tableContainer}>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          bounces={false}
-          contentContainerStyle={{
-            paddingHorizontal: 20,
-          }}
         >
-          <Table
-            headers={collections[activeCollection].headers}
-            rows={collections[activeCollection].rows}
-          />
-        </ScrollView>
+          <Button text="+" variant="outlined" />
+        </ButtonsSlider>
       </View>
+      <View style={styles.contentContainer}></View>
     </View>
   );
 };
@@ -117,12 +104,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonsContainer: {
-    marginLeft: -20,
+    marginHorizontal: -20,
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
   },
-  tableContainer: {
-    marginHorizontal: -20,
-  },
+  contentContainer: {},
 });

@@ -6,6 +6,7 @@ import { ThemedText } from "@/components/ThemedText";
 import Badge from "./Badge";
 import { IconSymbol } from "@/components/ui/icons/IconSymbol";
 import { UpcomingMaintenanceCardData } from "@/types/maintenance/upcoming";
+import Card from "../../card/Card";
 
 interface UpcomingMaintenanceCardProps {
   data: UpcomingMaintenanceCardData;
@@ -28,15 +29,14 @@ const UpcomingMaintenanceCard: React.FC<UpcomingMaintenanceCardProps> = ({
   }, [data.remaining.km, data.remaining.days]);
 
   return (
-    <View
-      style={[
+    <Card
+      style={StyleSheet.flatten([
         styles.container,
         {
-          backgroundColor: theme.card.background,
           borderColor:
             isOverdueDays || isOverdueKm ? theme.alert : theme.card.border,
         },
-      ]}
+      ])}
     >
       <View style={styles.titleContainer}>
         <ThemedText type="defaultSemiBold">{data.title}</ThemedText>
@@ -67,7 +67,7 @@ const UpcomingMaintenanceCard: React.FC<UpcomingMaintenanceCardProps> = ({
           />
         )}
       </View>
-    </View>
+    </Card>
   );
 };
 
@@ -75,11 +75,6 @@ export default UpcomingMaintenanceCard;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    width: "100%",
-    borderRadius: Values.card.borderRadius,
-    borderWidth: 1,
-    padding: 20,
     gap: 5,
   },
   titleContainer: {
