@@ -1,7 +1,15 @@
 export interface Collection {
   id: number;
   name: string;
-  description: string;
-  headers: string[];
-  rows: string[][];
+  data: CollectionData[];
+}
+
+export interface CollectionData {
+  title: string;
+  data: CollectionSectionData[];
+}
+
+export interface CollectionSectionData {
+  key: string;
+  value: string;
 }

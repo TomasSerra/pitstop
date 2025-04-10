@@ -1,13 +1,23 @@
-import { DimensionValue, Pressable, StyleSheet, Text } from "react-native";
+import {
+  DimensionValue,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import React from "react";
 import { useTheme } from "@/hooks/useTheme";
 import { Values } from "@/constants/Values";
+import { IconSymbol, IconSymbolName } from "@/components/ui/icons/IconSymbol";
 
 interface ButtonProps extends React.ComponentProps<typeof Pressable> {
   color?: "primary" | "black";
   size?: "small" | "medium" | "large";
-  variant?: "filled" | "outlined";
+  variant?: "filled" | "outlined" | "text";
+  leftIcon?: IconSymbolName;
+  rightIcon?: IconSymbolName;
   text: string;
+  style?: object;
 }
 
 const getColorMap = (theme: ReturnType<typeof useTheme>) => ({
@@ -23,6 +33,12 @@ const getColorMap = (theme: ReturnType<typeof useTheme>) => ({
       borderColor: theme.primary,
       borderWidth: 1,
     },
+    text: {
+      backgroundColor: "transparent",
+      textColor: theme.primary,
+      borderColor: "transparent",
+      borderWidth: 0,
+    },
   },
   black: {
     filled: {
@@ -35,6 +51,12 @@ const getColorMap = (theme: ReturnType<typeof useTheme>) => ({
       textColor: theme.text.default,
       borderColor: theme.text.default,
       borderWidth: 1,
+    },
+    text: {
+      backgroundColor: "transparent",
+      textColor: theme.text.default,
+      borderColor: "transparent",
+      borderWidth: 0,
     },
   },
 });
@@ -71,6 +93,9 @@ const Button: React.FC<ButtonProps> = ({
   size = "medium",
   variant = "filled",
   text,
+  rightIcon,
+  leftIcon,
+  style,
   ...props
 }) => {
   const theme = useTheme();
@@ -82,6 +107,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <Pressable
       style={({ pressed }) => [
+        style,
         styles.container,
         buttonColorStyle,
         buttonSizeStyle,
@@ -90,15 +116,33 @@ const Button: React.FC<ButtonProps> = ({
       android_ripple={{ color: theme.primary + "30" }}
       {...props}
     >
-      <Text
-        style={{
-          color: buttonColorStyle.textColor,
-          fontWeight: "bold",
-          fontSize: buttonSizeStyle.fontSize,
-        }}
-      >
-        {text}
-      </Text>
+      <View style={styles.contentContainer}>
+        {leftIcon && (
+          <IconSymbol
+            name={leftIcon}
+            color={buttonColorStyle.textColor}
+            size={buttonSizeStyle.fontSize}
+          />
+        )}
+
+        <Text
+          style={{
+            color: buttonColorStyle.textColor,
+            fontWeight: "bold",
+            fontSize: buttonSizeStyle.fontSize,
+          }}
+        >
+          {text}
+        </Text>
+
+        {rightIcon && (
+          <IconSymbol
+            name={rightIcon}
+            color={buttonColorStyle.textColor}
+            size={buttonSizeStyle.fontSize}
+          />
+        )}
+      </View>
     </Pressable>
   );
 };
@@ -113,5 +157,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
+    alignSelf: "center",
+  },
+  contentContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 10,
   },
 });

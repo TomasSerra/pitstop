@@ -1,5 +1,3 @@
-// This file is a fallback for using MaterialIcons on Android and web.
-
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { SymbolWeight } from "expo-symbols";
 import React from "react";
@@ -15,6 +13,11 @@ const MAPPING = {
   car: "directions-car",
   "car.fill": "directions-car-filled",
   "exclamationmark.triangle": "warning-amber",
+  "arrowtriangle.down.fill": "arrow-drop-down",
+  "arrowtriangle.right.fill": "arrow-right",
+  "square.and.pencil": "edit",
+  "trash.fill": "delete",
+  trash: "delete-outline",
 } as Partial<
   Record<
     import("expo-symbols").SymbolViewProps["name"],

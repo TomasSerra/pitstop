@@ -4,8 +4,7 @@ import { ThemedText } from "@/components/ThemedText";
 import Button from "@/components/common/button/Button";
 import ButtonsSlider from "@/components/common/buttons-slider/ButtonsSlider";
 import { Collection } from "@/types/collections/collection";
-import Table from "@/components/common/table/Table";
-import { ScrollView } from "react-native-gesture-handler";
+import CollectionsDataContainer from "./data/CollectionsDataContainer";
 
 const CollectionsPage = () => {
   const [activeCollection, setActiveCollection] = React.useState(0);
@@ -13,61 +12,29 @@ const CollectionsPage = () => {
     {
       id: 1,
       name: "Liquids",
-      description: "Table of car liquids",
-      headers: ["Type", "Detail", "Best Brands", "Price"],
-      rows: [
-        ["Oil", "10w40 Semisintetico", "Castrol, Mobil", "$50"],
-        ["Break Fluid", "DOT 4", "Castrol, Mobil", "$20"],
-        ["Coolant", "G12", "Castrol, Mobil", "$30"],
-        ["Power Steering Fluid", "ATF", "Castrol, Mobil", "$25"],
+      data: [
+        {
+          title: "Oil",
+          data: [
+            { key: "Type", value: "10w40 Semisintetico" },
+            { key: "Brands", value: "Total, Valvoline, Elf, Castrol" },
+          ],
+        },
+        {
+          title: "Brakes",
+          data: [
+            { key: "Type", value: "10w40 Semisintetico" },
+            { key: "Brands", value: "Total, Valvoline, Elf, Castrol" },
+          ],
+        },
       ],
     },
     {
       id: 2,
-      name: "Filters",
-      description: "Table of car filters",
-      headers: ["Type", "Best Brands", "Price"],
-      rows: [
-        ["Oil Filter", "Mann", "$10"],
-        ["Air Filter", "Mann", "$15"],
-        ["Fuel Filter", "Mann", "$20"],
-        ["Cabin Filter", "Mann", "$25"],
-      ],
-    },
-    {
-      id: 3,
-      name: "Tires",
-      description: "Table of car tires",
-      headers: ["Type", "Best Brands", "Price"],
-      rows: [
-        ["Summer Tire", "Michelin Pilot Sport 4", "$200"],
-        ["Winter Tire", "Michelin Pilot Alpin 5", "$250"],
-        ["All Season Tire", "Michelin CrossClimate+", "$220"],
-        ["Off Road Tire", "Michelin LTX Force", "$300"],
-      ],
-    },
-    {
-      id: 4,
-      name: "Brakes",
-      description: "Table of car brakes",
-      headers: ["Type", "Best Brands", "Price"],
-      rows: [
-        ["Disc Brake", "Brembo", "$100"],
-        ["Drum Brake", "Brembo", "$80"],
-        ["Ceramic Brake Pads", "Brembo", "$120"],
-        ["Semi-Metallic Brake Pads", "Brembo", "$90"],
-      ],
-    },
-    {
-      id: 5,
-      name: "Batteries",
-      description: "Table of car batteries",
-      headers: ["Type", "Best Brands", "Price"],
-      rows: [
-        ["Lead Acid Battery", "Bosch", "$150"],
-        ["Lithium Ion Battery", "Bosch", "$200"],
-        ["AGM Battery", "Bosch", "$250"],
-        ["Gel Battery", "Bosch", "$300"],
+      name: "Repuestos",
+      data: [
+        { title: "Item A", data: [{ key: "A", value: "Value A" }] },
+        { title: "Item B", data: [{ key: "B", value: "Value B" }] },
       ],
     },
   ];
@@ -85,7 +52,11 @@ const CollectionsPage = () => {
           <Button text="+" variant="outlined" />
         </ButtonsSlider>
       </View>
-      <View style={styles.contentContainer}></View>
+      <View style={styles.contentContainer}>
+        <CollectionsDataContainer
+          collectionData={collections[activeCollection].data}
+        />
+      </View>
     </View>
   );
 };
@@ -100,7 +71,6 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
   },
   buttonsContainer: {
